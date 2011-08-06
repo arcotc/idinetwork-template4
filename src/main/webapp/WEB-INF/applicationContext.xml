@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<tx:annotation-driven />
+
+	<bean id="siteUserService" class="uk.co.idinetwork.core.service.SiteUserServiceImpl" />
+	<bean id="siteUserRepository" class="uk.co.idinetwork.core.repository.SiteUserRepositoryImpl" />
+	<bean id="adminUserService" class="uk.co.idinetwork.core.service.AdminUserServiceImpl" />
+	<bean id="adminUserRepository" class="uk.co.idinetwork.core.repository.AdminUserRepositoryImpl" />
+	<bean id="imageService" class="uk.co.idinetwork.core.service.ImageServiceImpl" />
+	<bean id="imageRepository" class="uk.co.idinetwork.core.repository.ImageRepositoryImpl" />
+	<bean id="contactUsResponseService" class="uk.co.idinetwork.core.service.ContactUsResponseServiceImpl" />
+	<bean id="contactUsResponseRepository" class="uk.co.idinetwork.core.repository.ContactUsResponseRepositoryImpl" />
+	<bean id="generalService" class="uk.co.idinetwork.core.service.GeneralServiceImpl" />
+	<bean id="generalRepository" class="uk.co.idinetwork.core.repository.GeneralRepositoryImpl" />
+	<bean id="bloggerFeedService" class="uk.co.idinetwork.core.service.BloggerFeedServiceImpl" />
+	<bean id="bloggerFeedRepository" class="uk.co.idinetwork.core.repository.BloggerFeedRepositoryImpl" />
+	<bean id="bloggerService" class="uk.co.idinetwork.core.service.BloggerServiceImpl" />
+	<bean id="bloggerRepository" class="uk.co.idinetwork.core.repository.BloggerRepositoryImpl" />
+	<bean id="instructorService" class="uk.co.idinetwork.core.service.InstructorServiceImpl" />
+	<bean id="instructorRepository" class="uk.co.idinetwork.core.repository.InstructorRepositoryImpl" />
+	<bean id="siteNavigationService" class="uk.co.idinetwork.core.service.SiteNavigationServiceImpl" />
+	<bean id="siteNavigationRepository" class="uk.co.idinetwork.core.repository.SiteNavigationRepositoryImpl" />
+	<bean id="pageService" class="uk.co.idinetwork.core.service.PageServiceImpl" />
+	<bean id="pageRepository" class="uk.co.idinetwork.core.repository.PageRepositoryImpl" />
+	<bean id="authorisationService" class="uk.co.idinetwork.core.service.AuthorisationServiceImpl" />
+	
+	<bean id="googleUserService" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+       <property name="staticMethod" value="com.google.appengine.api.users.UserServiceFactory.getUserService"/>
+	</bean>	
+	
+	<bean id="multipartResolver" class="org.gmr.web.multipart.GMultipartResolver">
+	    <property name="maxUploadSize" value="1048576" />
+	</bean>
+</beans>
